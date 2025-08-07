@@ -1,0 +1,11 @@
+Configurando o GIT 
+git config --global user.name AnaJuliaMattos
+git config --global user.email anajuliamattos02@gmail.com
+
+Versoes .NET
+dotnet --list-sdks
+
+Criar Projeto MVC
+dotnet new mvc -o BlogAna
+cd BlogAna
+dotnet watch run
