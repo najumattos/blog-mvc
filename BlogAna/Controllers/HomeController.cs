@@ -15,6 +15,27 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        ViewData["Mensagem"] = "Olá Mundo";
+        Categoria categoria = new();
+        categoria.Id = 1;
+        categoria.Nome = "Tecnologia";
+
+        Categoria categoria2 = new();
+        categoria2.Id = 2;
+        categoria2.Nome = "IA";
+
+        List<Postagem> postagens = [
+            new(){
+                Id = 1,
+                Nome = "Saiu o ChatGPT 5 :D",                
+                Categoria = categoria2,
+                DataPostagem = DateTime.Parse("07/08/2025"),
+                Descricao = "O Professor está com preguiça de pensar nisso",
+                Texto = "Lorem ipsum"
+            }
+        ];
+
+        
         return View();
     }
 
