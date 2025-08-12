@@ -1,17 +1,35 @@
 ﻿@model List<Postagem>
-    
+
 @{
     ViewData["Title"] = "Home Page";
 }
+<div class="container">
 
-<div class="text-center">
-    <h1 class="display-4">Blog da Ana<h1>
-    <p>Noticias sobre Literatura e Tecnologia</p>
+    <div class="text-center">
+        <h1 class="display-4">Blog da Ana<h1>
+                <p>Noticias sobre Literatura e Tecnologia</p>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3 g-3">
+        @foreach (Postagem postagem in Model)
+        {
+            <div class="col ">
+                <div class="card h-100">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="@postagem.Thumbnail" class="img-fluid rounded-start h-100" alt="@postagem.Nome">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">@postagem.Nome</h5>
+                                <p class="card-text">@postagem.Categoria.Nome</p>
+                                <p class="card-text"><small class="text-body-secondary">Postado em:
+                                        @postagem.DataPostagem.ToString("dd/MM/yyyy")</small></p>
+                                <a asp-action="Postagem">Ler Mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
-
-@foreach (Postagem postagem in Model){
-    <p>@postagem.Id</p>
-    <p>@postagem.Nome</p>
-    <p>@postagem.Categoria</p>
-    <p>@postagem.Foto</p>
-}
