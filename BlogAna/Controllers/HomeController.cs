@@ -125,6 +125,8 @@ public class HomeController : Controller
         var postagem = postagens.Where(p => p.Id == id).SingleOrDefault();
         if(postagem == null)
         return NotFound();
+
+        ViewData["Categorias"] = categorias;
         return View(postagem);
     }
     public IActionResult Privacy()
